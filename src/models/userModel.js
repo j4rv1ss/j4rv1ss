@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 const { stringify } = require('nodemon/lib/utils');
 
 const bookSchema = new mongoose.Schema( {
-    bookName: String,
+    bookName: {
+        type : String,
+        unique: true,
+        required: true
+    },
     authorName: String,
     category: String,
     year: Number,
