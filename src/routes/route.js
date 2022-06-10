@@ -10,8 +10,6 @@ router.get("/test-me", function (req, res) {
 })
 
 
-
-
 router.post("/createBook", BookController.createBook  )
 
 
@@ -48,7 +46,7 @@ router.post("/createBook", BookController.createBook  )
 
 
 
-router.get("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.mid4, UserController.basicCode)
+router.get("/basicRoute", commonMW.mid4, UserController.basicCode)
 
 
 
