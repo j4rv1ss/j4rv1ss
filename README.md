@@ -50,3 +50,41 @@ Create API's to do each of the following:
 
 
 ​/v2​/appointment​/sessions​/public​/findByDistrict
+
+
+
+
+
+ const getCityTemp = async function (req, res) {
+    
+    try{
+        let cities = [
+            "Bengaluru",
+            "Mumbai",
+            "delhi",
+            "Kolkata",
+            "Chennai",
+            "London",
+            "Moscow"
+        ];
+        let cityObjArray = [];
+        for(let i = 0; i<cities.length; i++){
+      
+      let obj ={ city: cities[i]};
+      let options = {
+          method : "get",
+          url: `http://api.openweathermap.org/data/2.5/weather?q=${cities[i]}&appid=124af9ed0a29891fe91a032c5657e5f8`,                                                                                                                  
+      };
+      let resp = await axios(options);
+      console.log(resp.data.main.temp)
+      obj.temp = resp.data.main.temp
+      cityObjArray.push(obj)
+    }
+     let sorted = cityObjArray.sort(  function(a,b){return a.temp - b.temp})
+     console.log(sorted)
+     res.status(200).send({status: true, data: sorted})
+    }catch(err){
+      console.log(err);
+      res.status(500).send({msg:err.message})
+    }
+  };

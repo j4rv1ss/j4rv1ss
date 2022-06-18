@@ -99,9 +99,6 @@ let getByDistrict = async function (req, res) {
 
 
 
-let getWeather = async function (req, res){
-
-}
 
 
 
@@ -111,4 +108,3 @@ module.exports.getDistricts = getDistricts
 module.exports.getByPin = getByPin
 module.exports.getOtp = getOtp
 module.exports.getByDistrict = getByDistrict
-module.exports.getWeather = getWeather
